@@ -27,5 +27,6 @@ A simple task manager application built using **React**, **Vite**, and **Tailwin
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/task-manager-app.git
+   git clone https://github.com/RojeshPradhan/Task-Frontend-.git
    cd task-manager-app
+   ```

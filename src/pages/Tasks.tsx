@@ -76,7 +76,6 @@ export default function Tasks() {
         </div>
       )}
 
-      {/* Add Task Form */}
       <div className="bg-white p-6 rounded-lg shadow-md border border-indigo-100">
         <h2 className="text-xl font-semibold mb-4 text-indigo-700">
           Add New Task
@@ -129,7 +128,6 @@ export default function Tasks() {
         </form>
       </div>
 
-      {/* Task List */}
       <div className="space-y-4">
         {taskList.length === 0 ? (
           <div className="text-center py-8 bg-white rounded-lg shadow-md border border-indigo-100">

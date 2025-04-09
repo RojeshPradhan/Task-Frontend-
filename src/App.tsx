@@ -1,36 +1,40 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Tasks from './pages/Tasks';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Tasks from "./pages/Tasks";
 
 function App() {
   const [user, setUser] = useState<{ email: string } | null>(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
+    const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setUser(null);
-    window.location.href = '/login'
+    window.location.href = "/login";
   };
 
   return (
     <Router>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
-        {/* Header */}
         <header className="bg-white shadow-md">
           <div className="w-full px-8 py-4">
             <div className="flex justify-between items-center">
               <h1 className="text-2xl font-bold text-gray-800">Task Manager</h1>
               <nav className="space-x-6 flex items-center">
-                <Link to="/" className="text-gray-600 hover:text-blue-600 font-medium">Tasks</Link>
+                <Link
+                  to="/"
+                  className="text-gray-600 hover:text-blue-600 font-medium"
+                >
+                  Tasks
+                </Link>
 
                 {user ? (
                   <>
@@ -44,8 +48,18 @@ function App() {
                   </>
                 ) : (
                   <>
-                    <Link to="/login" className="text-gray-600 hover:text-blue-600 font-medium">Login</Link>
-                    <Link to="/register" className="text-gray-600 hover:text-blue-600 font-medium">Register</Link>
+                    <Link
+                      to="/login"
+                      className="text-gray-600 hover:text-blue-600 font-medium"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      to="/register"
+                      className="text-gray-600 hover:text-blue-600 font-medium"
+                    >
+                      Register
+                    </Link>
                   </>
                 )}
               </nav>
@@ -53,7 +67,6 @@ function App() {
           </div>
         </header>
 
-        {/* Main Content */}
         <main className="w-full px-8 py-8">
           <Routes>
             <Route path="/" element={<Tasks />} />

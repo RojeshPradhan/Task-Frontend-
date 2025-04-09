@@ -27,7 +27,7 @@ export default function Login() {
       const response = await auth.login(formData.email, formData.password);
       localStorage.setItem("token", response.token);
       localStorage.setItem("user", JSON.stringify(response.user));
-      window.location.href = "/";
+      window.location.replace("/");
     } catch (err) {
       const apiError = err as ApiError;
       setError(apiError.response?.data?.message ?? "Failed to login");

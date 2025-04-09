@@ -18,7 +18,7 @@ function App() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
-    window.location.href = "/login";
+    window.location.replace("/login");
   };
 
   return (
